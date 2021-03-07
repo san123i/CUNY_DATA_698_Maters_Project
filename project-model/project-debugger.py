@@ -22,12 +22,19 @@ except: # catch any other unexpected error
 # Format dates
 df['date'] =  pd.to_datetime(df['date'], format='%Y%m%d')
 
+limitPer = len(df) * .90
+df = df.dropna(thresh=limitPer, axis=1)
+
 # Exclude unnecessary attributes
-df.drop(['dateChecked'],axis=1,inplace=True)
+df.drop(['dateChecked', 'dateModified'],axis=1,inplace=True)
+df = df.loc[:, (df != 0).any(axis=0)]
 
 # Impute NaN values
 df.fillna(value=-1, inplace=True)
 
 # To check null values in data
 df.isnull().sum()
+
+
+
 
