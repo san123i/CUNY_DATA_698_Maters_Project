@@ -1,2 +1,2 @@
-# CUNY_DATA_698_Maters_Project
+# CUNY_DATA_698_Masters_Project
 A repo for CUNY Masters project
